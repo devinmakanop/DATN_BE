@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Restaurant = require('../models/restaurant');
+const accommodation = require('../models/accommodation')
 const Location = require('../models/location');
+const travelAgency = require('../models/travelAgency');
 
 exports.handleLike = async (req, res) => {
     const { type, refId } = req.params;
@@ -14,6 +16,8 @@ exports.handleLike = async (req, res) => {
         let Model;
         if (type === 'restaurant') Model = Restaurant;
         else if (type === 'location') Model = Location;
+        else if (type === 'travelAgency') Model = travelAgency;
+        else if (type === 'accommodation') Model = accommodation;
         else return res.status(400).json({ message: 'Invalid type' });
 
         const item = await Model.findById(refId);

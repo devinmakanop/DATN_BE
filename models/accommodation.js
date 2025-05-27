@@ -6,7 +6,15 @@ const accommodationSchema = new mongoose.Schema({
     phone: String,
     images: [String],
     description: String,
-    rating: Number
+    rating: Number,
+    likeCount: { type: Number, default: 0 },    
+    dislikeCount: { type: Number, default: 0 },
+    comments: [
+        {
+            user: String,
+            comment: String
+        }
+    ]
 });
 
-module.exports = mongoose.model('Accommodation', accommodationSchema);
+module.exports = mongoose.models.Accommodation || mongoose.model('Accommodation', accommodationSchema);
