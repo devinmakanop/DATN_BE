@@ -4,6 +4,7 @@ const router = express.Router();
 const residenceGuideController = require('../controllers/residenceGuideController');
 
 router.get('/', residenceGuideController.getAllGuides);
+router.get('/:id', residenceGuideController.getGuide);
 router.post('/', residenceGuideController.createGuide);
 
 module.exports = router;
