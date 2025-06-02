@@ -17,6 +17,7 @@ const locationSchema = new mongoose.Schema({
     },
     likeCount: { type: Number, default: 0 },
     dislikeCount: { type: Number, default: 0 },
+   
     comments: [
         {
             user: String,

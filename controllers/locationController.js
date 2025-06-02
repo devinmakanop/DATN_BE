@@ -155,7 +155,8 @@ const getLocationComments = async (req, res) => {
 // Lấy địa danh được thích nhiều nhất, dịch nếu cần
 const getTopLocations = async (req, res) => {
     try {
-        const locations = await Location.find().sort({ likeCount: -1 }).lean();
+       const locations = await Location.find({ likeCount: { $exists: true } }).sort({ likeCount: -1 }).lean();
+
         const targetLang = req.query.lng;
         if (!targetLang || targetLang === 'vi') {
             return res.json(locations);

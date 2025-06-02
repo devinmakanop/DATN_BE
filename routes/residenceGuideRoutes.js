@@ -6,5 +6,6 @@ const residenceGuideController = require('../controllers/residenceGuideControlle
 router.get('/', residenceGuideController.getAllGuides);
 router.get('/:id', residenceGuideController.getGuide);
 router.post('/', residenceGuideController.createGuide);
+router.delete('/:id', residenceGuideController.delete);
 
 module.exports = router;

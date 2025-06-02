@@ -85,3 +85,12 @@ exports.createGuide = async (req, res) => {
         res.status(500).json({ error: 'Lỗi khi tạo hướng dẫn' });
     }
 };
+
+exports.delete = async (req, res) => {
+    try {
+        await ResidenceGuide.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Đã xoá địa danh' });
+    } catch (err) {
+        res.status(500).json({ error: 'Xoá thất bại' });
+    }
+};

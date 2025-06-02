@@ -34,6 +34,8 @@ const translationRoutes = require('./routes/translationRoutes');
 const commentRoutes = require('./routes/commentRoutes');
 const likeRoutes = require('./routes/likeRoutes');
 
+const adminRoutes = require("./routes/admin")
+
 // Đăng ký routes (KHÔNG thêm autoTranslateMiddleware ở đây nữa)
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', aiRoutes);
@@ -45,6 +47,7 @@ app.use('/api/accommodations', accommodationRoutes);
 app.use('/api/translate', translationRoutes);
 app.use('/api/comments', commentRoutes);
 app.use('/api/likes', likeRoutes);
+app.use('/', adminRoutes)
 
 // Khởi động server
 const PORT = process.env.PORT || 5000;
